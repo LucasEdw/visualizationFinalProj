@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<!--Lucas Edwards - Visualizing Informatics - Final Project-->
+<html>
+  <head>
+    <title>Visualizations</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <style>
+    h1 {
+      text-align: center;
+    }
+    h3 {
+      text-align: center;
+    }
+
+
+    h2 {
+      margin: 15px;
+      text-align: center;
+      text-decoration: underline;
+    }
+    body {
+      background-color: black;
+    }
+
+    div {
+      background-color: lightgreen;
+      padding: 50px;
+      margin: 50px;
+    }
+    h4 {
+      text-align: center;
+    }
+
+    .spotify {
+      object-position: 10px 50%;
+      float: left;
+      height: 200px;
+      width: 200px;
+    }
+
+    ol, li {
+      margin: 6px;
+      font-size: 15px;
+      list-style-type: none;
+      font-weight: bold;
+      float: inherit;
+    }
+
+    svg {
+      float: inherit;
+    }
+
+    svg .hidden {display:none;}
+
+    svg g:hover text {display: block;}
+
+    svg {
+      position:relative;
+      left: 300px
+    }
+
+  </style>
+  <body>
+    <div id="base" style="border: solid 1px black">
+        <h1>Lucas Edwards - The Top 50 songs from Spotify in 2021!</h1>
+        <h3>Check the data to read a song's chart position, a song's popularity, their duration, and more!</h3>
+        <img src="https://ajourneyintosound.de/wp-content/uploads/2019/02/spotify_logo.png" alt="spotifyLogo" class="spotify">
+        </img>
+        <h1>Choose your chart position:</h1>
+        <h2 type="buttonTopTen"><a href="#topTen" style="color:black">1-10</a></h2>
+        <h2 type="buttonTopTwenty"><a href="#topTwenty" style="color:black">11-20</a></h2>
+        <h2 type="buttonTopThirty"><a href="#topThirty" style="color:black">21-30</a></h2>
+        <h2 type="buttonTopFourty"><a href="#topFourty" style="color:black">31-40</a></h2>
+        <h2 type="buttonTopFifty"><a href="#topFifty" style="color:black">41-50</a></h2>
+    </div>
+    <br>
+    <div id="topTen" style="border: solid 1px black">
+      <h1>#1-10</h1>
+      <h2>Chart:</h2>
+      <!-- The charting position according to the playlist-->
+      <ol>
+        <li>1. 'Driver's License' - Olivia Rodrigo</li>
+        <li>2. 'MONTERO (Call Me By Your Name)' - Lil Nas X</li>
+        <li>3. 'STAY' - The Kid LAROI & Justin Bieber</li>
+        <li>4. 'good 4 u' - Olivia Rodrigo</li>
+        <li>5. 'Levitating' - Dua Lipa & DaBaby</li>
+        <li>6. 'Peaches' - Justin Bieber, Giveon, Daniel Ceasar</li>
+        <li>7. 'Kiss Me More' - Doja Cat & SZA</li>
+        <li>8. 'Blinding Lights' - The Weeknd</li>
+        <li>9. 'Heat Waves' - Glass Animals</li>
+        <li>10. 'Beggin' - Maneskin</li>
+      </ol>
+      <h2>
+        Popularity:
+        <!--Question 01, "What are the most popualr songs in the chart?"-->
+      </h2>
+      <h4 style="font-style:italic">How many popularity points did each song get?</h4>
+      <svg width="450" height="300">
+        <g>
+          <rect id="pop01" x="55" y="57" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Driver's License' - 92 Points</text>
+        </g>
+        <g>
+          <rect id="pop02" x="95" y="59" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'MONTERO' - 90 Points</text>
+        </g>
+        <g>
+          <rect id="pop03" x="135" y="57" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'STAY' - 92 Points</text>
+        </g>
+        <g>
+          <rect id="pop04" x="175" y="55" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'good 4 u' - 95 Points</text>
+        </g>
+        <g>
+          <rect id="pop05" x="215" y="61" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Levitating' - 89 Points</text>
+        </g>
+        <g>
+          <rect id="pop06" x="255" y="60" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Peaches' - 90 Points</text>
+        </g>
+        <g>
+          <rect id="pop07" x="295" y="61" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Kiss Me More' - 88 Points</text>
+        </g>
+        <g>
+          <rect id="pop08" x="335" y="56" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Blinding Lights' - 93 Points</text>
+        </g>
+        <g>
+          <rect id="pop09" x="375" y="56" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Heat Waves' - 94 Points</text>
+        </g>
+        <g>
+          <rect id="pop10" x="415" y="56" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Beggin' - 93 Points</text>
+
+        </g>
+
+
+        <line x1="40" x2="500" y1="150" y2="150" stroke="black"></line>
+        <line x1="40" x2="40" y1="150" y2="-200" stroke="black"></line>
+
+
+        <text x="60" y="165" style="font-size: 10px">#1</text>
+        <text x="100" y="165" style="font-size: 10px">#2</text>
+        <text x="140" y="165" style="font-size: 10px">#3</text>
+        <text x="180" y="165" style="font-size: 10px">#4</text>
+        <text x="220" y="165" style="font-size: 10px">#5</text>
+        <text x="260" y="165" style="font-size: 10px">#6</text>
+        <text x="300" y="165" style="font-size: 10px">#7</text>
+        <text x="340" y="165" style="font-size: 10px">#8</text>
+        <text x="380" y="165" style="font-size: 10px">#9</text>
+        <text x="420" y="165" style="font-size: 10px">#10</text>
+
+        <text x="25" y="82" style="font-size: 10px">P</text>
+        <text x="25" y="92" style="font-size: 10px">o</text>
+        <text x="25" y="102" style="font-size: 10px">i</text>
+        <text x="25" y="112" style="font-size: 10px">n</text>
+        <text x="25" y="122" style="font-size: 10px">t</text>
+        <text x="25" y="132" style="font-size: 10px">s</text>
+
+        <script>
+          var tenPop = [ 92, 90, 92, 95, 89, 90, 88, 93, 94, 93 ];
+
+          var topTenPop01 = document.getElementById("pop01");
+          topTenPop01.setAttribute("height", tenPop[0]);
+          var topTenPop02 = document.getElementById("pop02");
+          topTenPop02.setAttribute("height", tenPop[1]);
+          var topTenPop03 = document.getElementById("pop03");
+          topTenPop03.setAttribute("height", tenPop[2]);
+          var topTenPop04 = document.getElementById("pop04");
+          topTenPop04.setAttribute("height", tenPop[3]);
+          var topTenPop05 = document.getElementById("pop05");
+          topTenPop05.setAttribute("height", tenPop[4]);
+          var topTenPop06 = document.getElementById("pop06");
+          topTenPop06.setAttribute("height", tenPop[5]);
+          var topTenPop07 = document.getElementById("pop07");
+          topTenPop07.setAttribute("height", tenPop[6]);
+          var topTenPop08 = document.getElementById("pop08");
+          topTenPop08.setAttribute("height", tenPop[7]);
+          var topTenPop09 = document.getElementById("pop09");
+          topTenPop09.setAttribute("height", tenPop[8]);
+          var topTenPop10 = document.getElementById("pop10");
+          topTenPop10.setAttribute("height", tenPop[9]);
+
+          function myFunction() {
+            console.log("The top ten of the popularity chart!")
+          }
+          /*
+          d3.select('svg').selectAll('rect').data(tenPop).attr('height', function(d) {
+            return d;
+          })
+          .attr('y', function(d) {
+              return 182 - d + 58;
+          })
+          */
+
+        </script>
+      </svg>
+      <br>
+      <h2>Song Durations:</h2>
+      <h4 style="font-style:italic">What is the length of each song in seconds (milliseconds)?</h4>
+      <!-- Question 02, "How long is each song according to the scatterplot?"-->
+      <br>
+      <svg width="450" height="350">
+        <line x1="40" x2="500" y1="200" y2="200" stroke="black"></line>
+        <line x1="40" x2="40" y1="200" y2="-410" stroke="black"></line>
+
+        <text x="20" y="10" style="font-size: 10px">#1</text>
+        <text x="20" y="30" style="font-size: 10px">#2</text>
+        <text x="20" y="50" style="font-size: 10px">#3</text>
+        <text x="20" y="70" style="font-size: 10px">#4</text>
+        <text x="20" y="90" style="font-size: 10px">#5</text>
+        <text x="20" y="110" style="font-size: 10px">#6</text>
+        <text x="20" y="130" style="font-size: 10px">#7</text>
+        <text x="20" y="150" style="font-size: 10px">#8</text>
+        <text x="20" y="170" style="font-size: 10px">#9</text>
+        <text x="20" y="190" style="font-size: 10px">#10</text>
+
+        <text x="200" y="210" style="font-size: 10px">Seconds (milliseconds)</text>
+
+        <g>
+        <circle id="scatter01" r="5" cy="10" cx="25" fill="blue"></circle>
+        <!--To get the amount of time in seconds, I divide the milliseconds by a thousand-->
+        <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Driver's License' - 242.013 seconds (242013 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter02" r="5" cy="30" cx="25" fill="blue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'MONTERO' - 137.704 seconds (137704 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter03" r="5" cy="50" cx="25" fill="blue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'STAY' - 141.806 seconds (141806 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter04" r="5" cy="70" cx="25" fill="blue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'good 4 u' - 178.147 seconds (178147 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter05" r="5" cy="90" cx="25" fill="blue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Levitating' - 203.064 seconds (203064 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter06" r="5" cy="110" cx="25" fill="blue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Peaches' - 198.082 seconds (198082 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter07" r="5" cy="130" cx="25" fill="blue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Kiss Me More' - 208.667 seconds (208667 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter08" r="5" cy="150" cx="25" fill="blue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Blinding Lights' - 200.040 seconds (200040 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter09" r="5" cy="170" cx="25" fill="blue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Heat Waves' - 238.805 seconds (238805 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter10" r="5" cy="190" cx="25" fill="blue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Beggin' - 238.805 seconds (238805 milliseconds)</text>
+        </g>
+
+        <script>
+          var tenScatter = [ 242013, 137704, 141806, 178147, 203064, 198082, 208667, 200040, 238805, 238805 ];
+
+          var topTenScatter01 = document.getElementById("scatter01");
+          topTenScatter01.setAttribute("cx", tenScatter[0]/1000);
+          var topTenScatter02 = document.getElementById("scatter02");
+          topTenScatter02.setAttribute("cx", tenScatter[1]/1000);
+          var topTenScatter03 = document.getElementById("scatter03");
+          topTenScatter03.setAttribute("cx", tenScatter[2]/1000);
+          var topTenScatter04 = document.getElementById("scatter04");
+          topTenScatter04.setAttribute("cx", tenScatter[3]/1000);
+          var topTenScatter05 = document.getElementById("scatter05");
+          topTenScatter05.setAttribute("cx", tenScatter[4]/1000);
+          var topTenScatter06 = document.getElementById("scatter06");
+          topTenScatter06.setAttribute("cx", tenScatter[5]/1000);
+          var topTenScatter07 = document.getElementById("scatter07");
+          topTenScatter07.setAttribute("cx", tenScatter[6]/1000);
+          var topTenScatter08 = document.getElementById("scatter08");
+          topTenScatter08.setAttribute("cx", tenScatter[7]/1000);
+          var topTenScatter09 = document.getElementById("scatter09");
+          topTenScatter09.setAttribute("cx", tenScatter[8]/1000);
+          var topTenScatter10 = document.getElementById("scatter10");
+          topTenScatter10.setAttribute("cx", tenScatter[9]/1000);
+        </script>
+      </svg>
+      <h2>Tempo:</h2>
+      <h4 style="font-style:italic">What is the estimated tempo of a track in beats per minute (BPM)?</h4>
+      <svg width="450" height="300">
+        <g>
+          <rect id="temp01" x="55" y="56" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Driver's License' - 143.875 BPM</text>
+        </g>
+        <g>
+          <rect id="temp02" x="95" y="21" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'MONTERO' - 178.781 BPM</text>
+        </g>
+        <g>
+          <rect id="temp03" x="135" y=30 width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'STAY' - 169.928 BPM</text>
+        </g>
+        <g>
+          <rect id="temp04" x="175" y="33" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'good 4 u' - 166.928 BPM</text>
+        </g>
+        <g>
+          <rect id="temp05" x="215" y="97" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Levitating' - 102.977 BPM</text>
+        </g>
+        <g>
+          <rect id="temp06" x="255" y="109" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Peaches' - 90.03 BPM</text>
+        </g>
+        <g>
+          <rect id="temp07" x="295" y="89" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Kiss Me More' - 110.97 BPM</text>
+        </g>
+        <g>
+          <rect id="temp08" x="335" y="28" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Blinding Lights' - 171.005 BPM</text>
+        </g>
+        <g>
+          <rect id="temp09" x="375" y="119" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Heat Waves' - 80.87 BPM</text>
+        </g>
+        <g>
+          <rect id="temp10" x="415" y="65" width="20" height="45" fill="blue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Beggin' - 134.002 BPM</text>
+
+        </g>
+
+
+        <line x1="40" x2="500" y1="200" y2="200" stroke="black"></line>
+        <line x1="40" x2="40" y1="200" y2="-200" stroke="black"></line>
+
+
+        <text x="60" y="210" style="font-size: 10px">#1</text>
+        <text x="100" y="210" style="font-size: 10px">#2</text>
+        <text x="140" y="210" style="font-size: 10px">#3</text>
+        <text x="180" y="210" style="font-size: 10px">#4</text>
+        <text x="220" y="210" style="font-size: 10px">#5</text>
+        <text x="260" y="210" style="font-size: 10px">#6</text>
+        <text x="300" y="210" style="font-size: 10px">#7</text>
+        <text x="340" y="210" style="font-size: 10px">#8</text>
+        <text x="380" y="210" style="font-size: 10px">#9</text>
+        <text x="420" y="210" style="font-size: 10px">#10</text>
+
+        <text x="25" y="82" style="font-size: 10px">B</text>
+        <text x="25" y="92" style="font-size: 10px">P</text>
+        <text x="25" y="102" style="font-size: 10px">M</text>
+
+
+        <script>
+          var tenTemp = [ 143.975, 178.781, 169.928, 166.928, 102.977, 90.03, 110.97, 171.005, 80.87, 134.002 ];
+
+          var topTenTempo01 = document.getElementById("temp01");
+          topTenTempo01.setAttribute("height", tenTemp[0]);
+          var topTenPop02 = document.getElementById("temp02");
+          topTenPop02.setAttribute("height", tenTemp[1]);
+          var topTenPop03 = document.getElementById("temp03");
+          topTenPop03.setAttribute("height", tenTemp[2]);
+          var topTenPop04 = document.getElementById("temp04");
+          topTenPop04.setAttribute("height", tenTemp[3]);
+          var topTenPop05 = document.getElementById("temp05");
+          topTenPop05.setAttribute("height", tenTemp[4]);
+          var topTenPop06 = document.getElementById("temp06");
+          topTenPop06.setAttribute("height", tenTemp[5]);
+          var topTenPop07 = document.getElementById("temp07");
+          topTenPop07.setAttribute("height", tenTemp[6]);
+          var topTenPop08 = document.getElementById("temp08");
+          topTenPop08.setAttribute("height", tenTemp[7]);
+          var topTenPop09 = document.getElementById("temp09");
+          topTenPop09.setAttribute("height", tenTemp[8]);
+          var topTenPop10 = document.getElementById("temp10");
+          topTenPop10.setAttribute("height", tenTemp[9]);
+        </script>
+      </svg>
+      <br>
+    </div>
+    <div id="topTwenty" style="border: solid 1px black">
+      <h1>#11-20</h1>
+      <h2>Chart:</h2>
+      <ol>
+        <li>11. 'Astronaut In The Ocean' - Masked Wolf'</li>
+        <li>12. 'Dákiti' - Bad Bunny</li>
+        <li>13. 'INDUSTRY BABY' - Lil Nas X & Jack Harlow</li>
+        <li>14. 'Bad Habits' - Ed Sheeran</li>
+        <li>15. 'Save Your Tears' - The Weeknd</li>
+        <li>16. 'Butter' - BTS</li>
+        <li>17. 'Leave the Door Open' - Bruno Mars, Anderson .Paak</li>
+        <li>18. 'deja vu' - Olivia Rodrigo</li>
+        <li>19. 'Todo De Ti' - Rauw Alejandro</li>
+        <li>20. 'Mood' - 24kGoldn & iann dior</li>
+      </ol>
+      <h2>
+        Popularity:
+        <!--Question 01, "What are the most popualr songs in the chart?"-->
+      </h2>
+      <h4 style="font-style:italic">How many popularity points did each song get?</h4>
+      <svg width="450" height="300">
+        <g>
+          <rect id="pop11" x="55" y="73" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Astronaut In The Ocean' - 77 Points</text>
+        </g>
+        <g>
+          <rect id="pop12" x="95" y="62" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Dákiti' - 87 Points</text>
+        </g>
+        <g>
+          <rect id="pop13" x="135" y="60" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'INDUSTRY BABY' - 90 Points</text>
+        </g>
+        <g>
+          <rect id="pop14" x="175" y="55" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Bad Habits' - 95 Points</text>
+        </g>
+        <g>
+          <rect id="pop15" x="215" y="59" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Save Your Tears' - 90 Points</text>
+        </g>
+        <g>
+          <rect id="pop16" x="255" y="78" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Butter' - 71 Points</text>
+        </g>
+        <g>
+          <rect id="pop17" x="295" y="65" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Leave The Door Open' - 86 Points</text>
+        </g>
+        <g>
+          <rect id="pop18" x="335" y="59" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'deja vu' - 90 Points</text>
+        </g>
+        <g>
+          <rect id="pop19" x="375" y="81" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Todo De Ti' - 69 Points</text>
+        </g>
+        <g>
+          <rect id="pop20" x="415" y="61" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Mood' - 89 Points</text>
+
+        </g>
+
+
+        <line x1="40" x2="500" y1="150" y2="150" stroke="black"></line>
+        <line x1="40" x2="40" y1="150" y2="-200" stroke="black"></line>
+
+
+        <text x="60" y="165" style="font-size: 10px">#11</text>
+        <text x="100" y="165" style="font-size: 10px">#12</text>
+        <text x="140" y="165" style="font-size: 10px">#13</text>
+        <text x="180" y="165" style="font-size: 10px">#14</text>
+        <text x="220" y="165" style="font-size: 10px">#15</text>
+        <text x="260" y="165" style="font-size: 10px">#16</text>
+        <text x="300" y="165" style="font-size: 10px">#17</text>
+        <text x="340" y="165" style="font-size: 10px">#18</text>
+        <text x="380" y="165" style="font-size: 10px">#19</text>
+        <text x="420" y="165" style="font-size: 10px">#20</text>
+
+        <text x="25" y="82" style="font-size: 10px">P</text>
+        <text x="25" y="92" style="font-size: 10px">o</text>
+        <text x="25" y="102" style="font-size: 10px">i</text>
+        <text x="25" y="112" style="font-size: 10px">n</text>
+        <text x="25" y="122" style="font-size: 10px">t</text>
+        <text x="25" y="132" style="font-size: 10px">s</text>
+
+        <script>
+          var twentyPop = [ 77, 87, 90, 95, 90, 71, 86, 90, 69, 89 ];
+
+          var topTwentyPop01 = document.getElementById("pop11");
+          topTwentyPop01.setAttribute("height", twentyPop[0]);
+          var topTwentyPop02 = document.getElementById("pop12");
+          topTwentyPop02.setAttribute("height", twentyPop[1]);
+          var topTwentyPop03 = document.getElementById("pop13");
+          topTwentyPop03.setAttribute("height", twentyPop[2]);
+          var topTwentyPop04 = document.getElementById("pop14");
+          topTwentyPop04.setAttribute("height", twentyPop[3]);
+          var topTwentyPop05 = document.getElementById("pop15");
+          topTwentyPop05.setAttribute("height", twentyPop[4]);
+          var topTwentyPop06 = document.getElementById("pop16");
+          topTwentyPop06.setAttribute("height", twentyPop[5]);
+          var topTwentyPop07 = document.getElementById("pop17");
+          topTwentyPop07.setAttribute("height", twentyPop[6]);
+          var topTwentyPop08 = document.getElementById("pop18");
+          topTwentyPop08.setAttribute("height", twentyPop[7]);
+          var topTwentyPop09 = document.getElementById("pop19");
+          topTwentyPop09.setAttribute("height", twentyPop[8]);
+          var topTwentyPop10 = document.getElementById("pop20");
+          topTwentyPop10.setAttribute("height", twentyPop[9]);
+        </script>
+      </svg>
+      <br>
+      <h2>Song Durations:</h2>
+      <h4 style="font-style:italic">What is the length of each song in seconds (milliseconds)?</h4>
+      <!-- Question 02, "How long is each song according to the scatterplot?"-->
+      <br>
+      <svg width="450" height="350">
+        <line x1="40" x2="500" y1="200" y2="200" stroke="black"></line>
+        <line x1="40" x2="40" y1="200" y2="-410" stroke="black"></line>
+
+        <text x="20" y="10" style="font-size: 10px">#11</text>
+        <text x="20" y="30" style="font-size: 10px">#12</text>
+        <text x="20" y="50" style="font-size: 10px">#13</text>
+        <text x="20" y="70" style="font-size: 10px">#14</text>
+        <text x="20" y="90" style="font-size: 10px">#15</text>
+        <text x="20" y="110" style="font-size: 10px">#16</text>
+        <text x="20" y="130" style="font-size: 10px">#17</text>
+        <text x="20" y="150" style="font-size: 10px">#18</text>
+        <text x="20" y="170" style="font-size: 10px">#19</text>
+        <text x="20" y="190" style="font-size: 10px">#20</text>
+
+        <text x="200" y="210" style="font-size: 10px">Seconds (milliseconds)</text>
+
+        <g>
+        <circle id="scatter11" r="5" cy="10" cx="25" fill="darkblue"></circle>
+        <!--To get the amount of time in seconds, I divide the milliseconds by a thousand-->
+        <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Astronaut In The Ocean' - 132.780 seconds (132780 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter12" r="5" cy="30" cx="25" fill="darkblue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Dákiti' - 205.090 seconds (205090 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter13" r="5" cy="50" cx="25" fill="darkblue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'INDUSTRY BABY' - 212.353 seconds (212353 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter14" r="5" cy="70" cx="25" fill="darkblue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Bad Habits' - 230.747 seconds (230747 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter15" r="5" cy="90" cx="25" fill="darkblue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Save Your Tears' - 215.627 seconds (215627 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter16" r="5" cy="110" cx="25" fill="darkblue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Butter' - 164.442 seconds (164442 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter17" r="5" cy="130" cx="25" fill="darkblue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Leave the Door Open' - 242.096 seconds (242096 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter18" r="5" cy="150" cx="25" fill="darkblue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'deja vu' - 215.507 seconds (215507 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter19" r="5" cy="170" cx="25" fill="darkblue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Todo De Ti' - 199.604 seconds (199604 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter20" r="5" cy="190" cx="25" fill="darkblue"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Mood' - 140.533 seconds (140533 milliseconds)</text>
+        </g>
+
+        <script>
+          var twentyScatter = [ 132780, 205090, 212353, 230747, 215627, 164442, 242096, 215507, 199604, 140533 ];
+
+          var topTwentyScatter01 = document.getElementById("scatter11");
+          topTwentyScatter01.setAttribute("cx", twentyScatter[0]/1000);
+          var topTwentyScatter02 = document.getElementById("scatter12");
+          topTwentyScatter02.setAttribute("cx", twentyScatter[1]/1000);
+          var topTwentyScatter03 = document.getElementById("scatter13");
+          topTwentyScatter03.setAttribute("cx", twentyScatter[2]/1000);
+          var topTwentyScatter04 = document.getElementById("scatter14");
+          topTwentyScatter04.setAttribute("cx", twentyScatter[3]/1000);
+          var topTwentyScatter05 = document.getElementById("scatter15");
+          topTwentyScatter05.setAttribute("cx", twentyScatter[4]/1000);
+          var topTwentyScatter06 = document.getElementById("scatter16");
+          topTwentyScatter06.setAttribute("cx", twentyScatter[5]/1000);
+          var topTwentyScatter07 = document.getElementById("scatter17");
+          topTwentyScatter07.setAttribute("cx", twentyScatter[6]/1000);
+          var topTwentyScatter08 = document.getElementById("scatter18");
+          topTwentyScatter08.setAttribute("cx", twentyScatter[7]/1000);
+          var topTwentyScatter09 = document.getElementById("scatter19");
+          topTwentyScatter09.setAttribute("cx", twentyScatter[8]/1000);
+          var topTwentyScatter10 = document.getElementById("scatter20");
+          topTwentyScatter10.setAttribute("cx", twentyScatter[9]/1000);
+        </script>
+      </svg>
+      <h2>Tempo:</h2>
+      <h4 style="font-style:italic">What is the estimated tempo of a track in beats per minute (BPM)?</h4>
+      <svg width="450" height="300">
+        <g>
+          <rect id="temp11" x="55" y="50" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Astronaut In The Ocean' - 149.996 BPM</text>
+        </g>
+        <g>
+          <rect id="temp12" x="95" y="90" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Dákiti' - 109.928 BPM</text>
+        </g>
+        <g>
+          <rect id="temp13" x="135" y="50" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'INDUSTRY BABY' - 150.87 BPM</text>
+        </g>
+        <g>
+          <rect id="temp14" x="175" y="74" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Bad Habits' - 126.011 BPM</text>
+        </g>
+        <g>
+          <rect id="temp15" x="215" y="82" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Save Your Tears' - 118.051 BPM</text>
+        </g>
+        <g>
+          <rect id="temp16" x="255" y="90" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Butter' - 109.997 BPM</text>
+        </g>
+        <g>
+          <rect id="temp17" x="295" y="53" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Leave the Door Open' - 148.088 BPM</text>
+        </g>
+        <g>
+          <rect id="temp18" x="335" y="19" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'deja vu' - 180.917 BPM</text>
+        </g>
+        <g>
+          <rect id="temp19" x="375" y="73" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Todo De Ti' - 127.962 BPM</text>
+        </g>
+        <g>
+          <rect id="temp20" x="415" y="109" width="20" height="45" fill="darkblue"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Mood' - 91.007 BPM</text>
+
+        </g>
+
+
+        <line x1="40" x2="500" y1="200" y2="200" stroke="black"></line>
+        <line x1="40" x2="40" y1="200" y2="-200" stroke="black"></line>
+
+
+        <text x="60" y="210" style="font-size: 10px">#11</text>
+        <text x="100" y="210" style="font-size: 10px">#12</text>
+        <text x="140" y="210" style="font-size: 10px">#13</text>
+        <text x="180" y="210" style="font-size: 10px">#14</text>
+        <text x="220" y="210" style="font-size: 10px">#15</text>
+        <text x="260" y="210" style="font-size: 10px">#16</text>
+        <text x="300" y="210" style="font-size: 10px">#17</text>
+        <text x="340" y="210" style="font-size: 10px">#18</text>
+        <text x="380" y="210" style="font-size: 10px">#19</text>
+        <text x="420" y="210" style="font-size: 10px">#20</text>
+
+        <text x="25" y="82" style="font-size: 10px">B</text>
+        <text x="25" y="92" style="font-size: 10px">P</text>
+        <text x="25" y="102" style="font-size: 10px">M</text>
+
+
+        <script>
+          var twentyTempo = [ 149.996, 109.928, 150.87, 126.011, 118.051, 109.997, 148.088, 180.917, 127.962, 91.007 ];
+
+          var topTwentyTempo01 = document.getElementById("temp11");
+          topTwentyTempo01.setAttribute("height", twentyTempo[0]);
+          var topTwentyTempo02 = document.getElementById("temp12");
+          topTwentyTempo02.setAttribute("height", twentyTempo[1]);
+          var topTwentyTempo03 = document.getElementById("temp13");
+          topTwentyTempo03.setAttribute("height", twentyTempo[2]);
+          var topTwentyTempo04 = document.getElementById("temp14");
+          topTwentyTempo04.setAttribute("height", twentyTempo[3]);
+          var topTwentyTempo05 = document.getElementById("temp15");
+          topTwentyTempo05.setAttribute("height", twentyTempo[4]);
+          var topTwentyTempo06 = document.getElementById("temp16");
+          topTwentyTempo06.setAttribute("height", twentyTempo[5]);
+          var topTwentyTempo07 = document.getElementById("temp17");
+          topTwentyTempo07.setAttribute("height", twentyTempo[6]);
+          var topTwentyTempo08 = document.getElementById("temp18");
+          topTwentyTempo08.setAttribute("height", twentyTempo[7]);
+          var topTwentyTempo09 = document.getElementById("temp19");
+          topTwentyTempo09.setAttribute("height", twentyTempo[8]);
+          var topTwentyTempo10 = document.getElementById("temp20");
+          topTwentyTempo10.setAttribute("height", twentyTempo[9]);
+        </script>
+      </svg>
+      <br>
+    </div>
+    <div id="topThirty" style="border: solid 1px black">
+      <h1>#21-30</h1>
+      <h2>Chart:</h2>
+      <ol>
+        <li>21. 'The Business' - Tiesto</li>
+        <li>22. 'Dynamite' - BTS</li>
+        <li>23. 'Yonaguni' - Bad Bunny</li>
+        <li>24. 'Watermelon Sugar' - Harry Styles</li>
+        <li>25. 'Friday (Dopamine Re-Edit)' - Riton, Dopamine, Mufasa, Hypeman</li>
+        <li>26. 'telepatía' - Kali Uchis</li>
+        <li>27. 'WITHOUT YOU' - The Kid LAROI</li>
+        <li>28. 'Heartbreak Anniversary' - The Kid LAROI</li>
+        <li>29. 'traitor' - Olivia Rodrigo</li>
+        <li>30. 'Pepas' - Farruko</li>
+      </ol>
+      <h2>
+        Popularity:
+        <!--Question 01, "What are the most popualr songs in the chart?"-->
+      </h2>
+      <h4 style="font-style:italic">How many popularity points did each song get?</h4>
+      <svg width="450" height="300">
+        <g>
+          <rect id="pop21" x="55" y="62" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'The Business' - 88 Points</text>
+        </g>
+        <g>
+          <rect id="pop22" x="95" y="83" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Dynamite' - 67 Points</text>
+        </g>
+        <g>
+          <rect id="pop23" x="135" y="56" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Yonaguni' - 94 Points</text>
+        </g>
+        <g>
+          <rect id="pop24" x="175" y="60" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Watermelon Sugar' - 90 Points</text>
+        </g>
+        <g>
+          <rect id="pop25" x="215" y="62" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Friday (Dopamine Re-Edit)' - 88 Points</text>
+        </g>
+        <g>
+          <rect id="pop26" x="255" y="63" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'telepatía' - 87 Points</text>
+        </g>
+        <g>
+          <rect id="pop27" x="295" y="65" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'WITHOUT YOU' - 85 Points</text>
+        </g>
+        <g>
+          <rect id="pop28" x="335" y="64" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Heartbreak Anniversary' - 86 Points</text>
+        </g>
+        <g>
+          <rect id="pop29" x="375" y="58" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'traitor' - 92 Points</text>
+        </g>
+        <g>
+          <rect id="pop30" x="415" y="64" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Pepas' - 86 Points</text>
+
+        </g>
+
+
+        <line x1="40" x2="500" y1="150" y2="150" stroke="black"></line>
+        <line x1="40" x2="40" y1="150" y2="-200" stroke="black"></line>
+
+        <text x="60" y="165" style="font-size: 10px">#21</text>
+        <text x="100" y="165" style="font-size: 10px">#22</text>
+        <text x="140" y="165" style="font-size: 10px">#23</text>
+        <text x="180" y="165" style="font-size: 10px">#24</text>
+        <text x="220" y="165" style="font-size: 10px">#25</text>
+        <text x="260" y="165" style="font-size: 10px">#26</text>
+        <text x="300" y="165" style="font-size: 10px">#27</text>
+        <text x="340" y="165" style="font-size: 10px">#28</text>
+        <text x="380" y="165" style="font-size: 10px">#29</text>
+        <text x="420" y="165" style="font-size: 10px">#30</text>
+
+        <text x="25" y="82" style="font-size: 10px">P</text>
+        <text x="25" y="92" style="font-size: 10px">o</text>
+        <text x="25" y="102" style="font-size: 10px">i</text>
+        <text x="25" y="112" style="font-size: 10px">n</text>
+        <text x="25" y="122" style="font-size: 10px">t</text>
+        <text x="25" y="132" style="font-size: 10px">s</text>
+
+        <script>
+          var thirtyPop = [ 88, 67, 94, 90, 88, 87, 85, 86, 92, 86 ];
+
+          var topThirtyPop01 = document.getElementById("pop21");
+          topThirtyPop01.setAttribute("height", thirtyPop[0]);
+          var topThirtyPop02 = document.getElementById("pop22");
+          topThirtyPop02.setAttribute("height", thirtyPop[1]);
+          var topThirtyPop03 = document.getElementById("pop23");
+          topThirtyPop03.setAttribute("height", thirtyPop[2]);
+          var topThirtyPop04 = document.getElementById("pop24");
+          topThirtyPop04.setAttribute("height", thirtyPop[3]);
+          var topThirtyPop05 = document.getElementById("pop25");
+          topThirtyPop05.setAttribute("height", thirtyPop[4]);
+          var topThirtyPop06 = document.getElementById("pop26");
+          topThirtyPop06.setAttribute("height", thirtyPop[5]);
+          var topThirtyPop07 = document.getElementById("pop27");
+          topThirtyPop07.setAttribute("height", thirtyPop[6]);
+          var topThirtyPop08 = document.getElementById("pop28");
+          topThirtyPop08.setAttribute("height", thirtyPop[7]);
+          var topThirtyPop09 = document.getElementById("pop29");
+          topThirtyPop09.setAttribute("height", thirtyPop[8]);
+          var topThirtyPop10 = document.getElementById("pop30");
+          topThirtyPop10.setAttribute("height", thirtyPop[9]);
+        </script>
+      </svg>
+      <br>
+      <h2>Song Durations:</h2>
+      <h4 style="font-style:italic">What is the length of each song in seconds (milliseconds)?</h4>
+      <!-- Question 02, "How long is each song according to the scatterplot?"-->
+      <br>
+      <svg width="450" height="350">
+        <line x1="40" x2="500" y1="200" y2="200" stroke="black"></line>
+        <line x1="40" x2="40" y1="200" y2="-410" stroke="black"></line>
+
+        <text x="20" y="10" style="font-size: 10px">#21</text>
+        <text x="20" y="30" style="font-size: 10px">#22</text>
+        <text x="20" y="50" style="font-size: 10px">#23</text>
+        <text x="20" y="70" style="font-size: 10px">#24</text>
+        <text x="20" y="90" style="font-size: 10px">#25</text>
+        <text x="20" y="110" style="font-size: 10px">#26</text>
+        <text x="20" y="130" style="font-size: 10px">#27</text>
+        <text x="20" y="150" style="font-size: 10px">#28</text>
+        <text x="20" y="170" style="font-size: 10px">#29</text>
+        <text x="20" y="190" style="font-size: 10px">#30</text>
+
+        <text x="200" y="210" style="font-size: 10px">Seconds (milliseconds)</text>
+
+        <g>
+        <circle id="scatter21" r="5" cy="10" cx="25" fill="purple"></circle>
+        <!--To get the amount of time in seconds, I divide the milliseconds by a thousand-->
+        <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'The Business' - 164 seconds (164000 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter22" r="5" cy="30" cx="25" fill="purple"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Dynamite' - 199.054 seconds (199054 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter23" r="5" cy="50" cx="25" fill="purple"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Yonaguni' - 206.710 seconds (206710 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter24" r="5" cy="70" cx="25" fill="purple"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Watermelon Sugar' - 174 seconds (174000 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter25" r="5" cy="90" cx="25" fill="purple"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Friday (Dopamine Re-Edit)' - 169.153 seconds (169153 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter26" r="5" cy="110" cx="25" fill="purple"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'telepatía' - 160.191 seconds (160191 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter27" r="5" cy="130" cx="25" fill="purple"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'WITHOUT YOU' - 161.385 seconds (161385 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter28" r="5" cy="150" cx="25" fill="purple"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Heartbreak Anniversary' - 128.371 seconds (128371 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter29" r="5" cy="170" cx="25" fill="purple"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'traitor' - 229.227 seconds (229227 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter30" r="5" cy="190" cx="25" fill="purple"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Pepas' - 287.120 seconds (287120 milliseconds)</text>
+        </g>
+
+        <script>
+          var thirtyScatter = [ 164000, 199054, 206710, 174000, 169153, 160191, 161385, 128371, 229227, 287120 ];
+
+          var topThirtyScatter01 = document.getElementById("scatter21");
+          topThirtyScatter01.setAttribute("cx", thirtyScatter[0]/1000);
+          var topThirtyScatter02 = document.getElementById("scatter22");
+          topThirtyScatter02.setAttribute("cx", thirtyScatter[1]/1000);
+          var topThirtyScatter03 = document.getElementById("scatter23");
+          topThirtyScatter03.setAttribute("cx", thirtyScatter[2]/1000);
+          var topThirtyScatter04 = document.getElementById("scatter24");
+          topThirtyScatter04.setAttribute("cx", thirtyScatter[3]/1000);
+          var topThirtyScatter05 = document.getElementById("scatter25");
+          topThirtyScatter05.setAttribute("cx", thirtyScatter[4]/1000);
+          var topThirtyScatter06 = document.getElementById("scatter26");
+          topThirtyScatter06.setAttribute("cx", thirtyScatter[5]/1000);
+          var topThirtyScatter07 = document.getElementById("scatter27");
+          topThirtyScatter07.setAttribute("cx", thirtyScatter[6]/1000);
+          var topThirtyScatter08 = document.getElementById("scatter28");
+          topThirtyScatter08.setAttribute("cx", thirtyScatter[7]/1000);
+          var topThirtyScatter09 = document.getElementById("scatter29");
+          topThirtyScatter09.setAttribute("cx", thirtyScatter[8]/1000);
+          var topThirtyScatter10 = document.getElementById("scatter30");
+          topThirtyScatter10.setAttribute("cx", thirtyScatter[9]/1000);
+        </script>
+      </svg>
+      <h2>Tempo:</h2>
+      <h4 style="font-style:italic">What is the estimated tempo of a track in beats per minute (BPM)?</h4>
+      <svg width="450" height="300">
+        <g>
+          <rect id="temp21" x="55" y="81" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'The Business' - 120.031 BPM</text>
+        </g>
+        <g>
+          <rect id="temp22" x="95" y="86" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Dynamite' - 114.044 BPM</text>
+        </g>
+        <g>
+          <rect id="temp23" x="135" y="20" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Yonaguni' - 179.981 BPM</text>
+        </g>
+        <g>
+          <rect id="temp24" x="175" y="105" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Watermelon Sugar' - 95.39 BPM</text>
+        </g>
+        <g>
+          <rect id="temp25" x="215" y="78" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Friday (Dopamine Re-Edit)' - 122.98 BPM</text>
+        </g>
+        <g>
+          <rect id="temp26" x="255" y="117" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'telepatía' - 83.97 BPM</text>
+        </g>
+        <g>
+          <rect id="temp27" x="295" y="107" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'WITHOUT ME' - 93.005 BPM</text>
+        </g>
+        <g>
+          <rect id="temp28" x="335" y="111" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Heartbreak Anniversary' - 89.087 BPM</text>
+        </g>
+        <g>
+          <rect id="temp29" x="375" y="99" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'traitor' - 100.607 BPM</text>
+        </g>
+        <g>
+          <rect id="temp30" x="415" y="70" width="20" height="45" fill="purple"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Pepas' - 130.001 BPM</text>
+
+        </g>
+
+
+        <line x1="40" x2="500" y1="200" y2="200" stroke="black"></line>
+        <line x1="40" x2="40" y1="200" y2="-200" stroke="black"></line>
+
+
+        <text x="60" y="210" style="font-size: 10px">#21</text>
+        <text x="100" y="210" style="font-size: 10px">#22</text>
+        <text x="140" y="210" style="font-size: 10px">#23</text>
+        <text x="180" y="210" style="font-size: 10px">#24</text>
+        <text x="220" y="210" style="font-size: 10px">#25</text>
+        <text x="260" y="210" style="font-size: 10px">#26</text>
+        <text x="300" y="210" style="font-size: 10px">#27</text>
+        <text x="340" y="210" style="font-size: 10px">#28</text>
+        <text x="380" y="210" style="font-size: 10px">#29</text>
+        <text x="420" y="210" style="font-size: 10px">#30</text>
+
+        <text x="25" y="82" style="font-size: 10px">B</text>
+        <text x="25" y="92" style="font-size: 10px">P</text>
+        <text x="25" y="102" style="font-size: 10px">M</text>
+
+
+        <script>
+          var thirtyTempo = [ 120.031, 114.044, 179.981, 95.39, 122.98, 83.97, 93.005, 89.087, 100.607, 130.001 ];
+
+          var topThirtyTempo01 = document.getElementById("temp21");
+          topThirtyTempo01.setAttribute("height", thirtyTempo[0]);
+          var topThirtyTempo02 = document.getElementById("temp22");
+          topThirtyTempo02.setAttribute("height", thirtyTempo[1]);
+          var topThirtyTempo03 = document.getElementById("temp23");
+          topThirtyTempo03.setAttribute("height", thirtyTempo[2]);
+          var topThirtyTempo04 = document.getElementById("temp24");
+          topThirtyTempo04.setAttribute("height", thirtyTempo[3]);
+          var topThirtyTempo05 = document.getElementById("temp25");
+          topThirtyTempo05.setAttribute("height", thirtyTempo[4]);
+          var topThirtyTempo06 = document.getElementById("temp26");
+          topThirtyTempo06.setAttribute("height", thirtyTempo[5]);
+          var topThirtyTempo07 = document.getElementById("temp27");
+          topThirtyTempo07.setAttribute("height", thirtyTempo[6]);
+          var topThirtyTempo08 = document.getElementById("temp28");
+          topThirtyTempo08.setAttribute("height", thirtyTempo[7]);
+          var topThirtyTempo09 = document.getElementById("temp29");
+          topThirtyTempo09.setAttribute("height", thirtyTempo[8]);
+          var topThirtyTempo10 = document.getElementById("temp30");
+          topThirtyTempo10.setAttribute("height", thirtyTempo[9]);
+        </script>
+      </svg>
+      <br>
+    </div>
+    <div id="topFourty" style="border: solid 1px black">
+      <h1>#31-40</h1>
+      <h2>Chart:</h2>
+      <ol>
+        <li>31. 'positions' - Ariana Grande</li>
+        <li>32. 'Someone You Loved' - Lewis Capaldi</li>
+        <li>33. 'Bandido' - Myke Towers</li>
+        <li>34. 'I WANNA BE YOUR SLAVE' - Maneskin</li>
+        <li>35. 'RAPSTAR' - Polo G</li>
+        <li>36. 'LA NOCHE DE ANOCHE' - Bad Bunny</li>
+        <li>37. 'Streets' - Doja Cat</li>
+        <li>38. 'Sweater Weather' - The Neighbourhood</li>
+        <li>39. 'Fiel' - Los Legendarios</li>
+        <li>40. 'Need to Know' - Doja Cat</li>
+      </ol>
+      <h2>
+        Popularity:
+        <!--Question 01, "What are the most popualr songs in the chart?"-->
+      </h2>
+      <h4 style="font-style:italic">How many popularity points did each song get?</h4>
+      <svg width="450" height="300">
+        <g>
+          <rect id="pop31" x="55" y="62" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'positions' - 88 Points</text>
+        </g>
+        <g>
+          <rect id="pop32" x="95" y="62" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Someone You Loved' - 88 Points</text>
+        </g>
+        <g>
+          <rect id="pop33" x="135" y="68" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Bandido' - 82 Points</text>
+        </g>
+        <g>
+          <rect id="pop34" x="175" y="68" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'I WANNA BE YOUR SLAVE' - 82 Points</text>
+        </g>
+        <g>
+          <rect id="pop35" x="215" y="68" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'RAPSTAR' - 82 Points</text>
+        </g>
+        <g>
+          <rect id="pop36" x="255" y="63" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'LA NOCH DE ANOCHE' - 87 Points</text>
+        </g>
+        <g>
+          <rect id="pop37" x="295" y="63" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Streets' - 87 Points</text>
+        </g>
+        <g>
+          <rect id="pop38" x="335" y="58" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Sweater Weather' - 92 Points</text>
+        </g>
+        <g>
+          <rect id="pop39" x="375" y="68" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Fiel' - 82 Points</text>
+        </g>
+        <g>
+          <rect id="pop40" x="415" y="57" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Need to Know' - 93 Points</text>
+
+        </g>
+
+
+        <line x1="40" x2="500" y1="150" y2="150" stroke="black"></line>
+        <line x1="40" x2="40" y1="150" y2="-200" stroke="black"></line>
+
+
+        <text x="60" y="165" style="font-size: 10px">#31</text>
+        <text x="100" y="165" style="font-size: 10px">#32</text>
+        <text x="140" y="165" style="font-size: 10px">#33</text>
+        <text x="180" y="165" style="font-size: 10px">#34</text>
+        <text x="220" y="165" style="font-size: 10px">#35</text>
+        <text x="260" y="165" style="font-size: 10px">#36</text>
+        <text x="300" y="165" style="font-size: 10px">#37</text>
+        <text x="340" y="165" style="font-size: 10px">#38</text>
+        <text x="380" y="165" style="font-size: 10px">#39</text>
+        <text x="420" y="165" style="font-size: 10px">#40</text>
+
+        <text x="25" y="82" style="font-size: 10px">P</text>
+        <text x="25" y="92" style="font-size: 10px">o</text>
+        <text x="25" y="102" style="font-size: 10px">i</text>
+        <text x="25" y="112" style="font-size: 10px">n</text>
+        <text x="25" y="122" style="font-size: 10px">t</text>
+        <text x="25" y="132" style="font-size: 10px">s</text>
+
+        <script>
+          var fourtyPop = [ 88, 88, 82, 82, 82, 87, 87, 92, 82, 93 ];
+
+          var topFourtyPop01 = document.getElementById("pop31");
+          topFourtyPop01.setAttribute("height", fourtyPop[0]);
+          var topFourtyPop02 = document.getElementById("pop32");
+          topFourtyPop02.setAttribute("height", fourtyPop[1]);
+          var topFourtyPop03 = document.getElementById("pop33");
+          topFourtyPop03.setAttribute("height", fourtyPop[2]);
+          var topFourtyPop04 = document.getElementById("pop34");
+          topFourtyPop04.setAttribute("height", fourtyPop[3]);
+          var topFourtyPop05 = document.getElementById("pop35");
+          topFourtyPop05.setAttribute("height", fourtyPop[4]);
+          var topFourtyPop06 = document.getElementById("pop36");
+          topFourtyPop06.setAttribute("height", fourtyPop[5]);
+          var topFourtyPop07 = document.getElementById("pop37");
+          topFourtyPop07.setAttribute("height", fourtyPop[6]);
+          var topFourtyPop08 = document.getElementById("pop38");
+          topFourtyPop08.setAttribute("height", fourtyPop[7]);
+          var topFourtyPop09 = document.getElementById("pop39");
+          topFourtyPop09.setAttribute("height", fourtyPop[8]);
+          var topFourtyPop10 = document.getElementById("pop40");
+          topFourtyPop10.setAttribute("height", fourtyPop[9]);
+        </script>
+      </svg>
+      <br>
+      <h2>Song Durations:</h2>
+      <h4 style="font-style:italic">What is the length of each song in seconds (milliseconds)?</h4>
+      <!-- Question 02, "How long is each song according to the scatterplot?"-->
+      <br>
+      <svg width="450" height="350">
+        <line x1="40" x2="500" y1="200" y2="200" stroke="black"></line>
+        <line x1="40" x2="40" y1="200" y2="-410" stroke="black"></line>
+
+        <text x="20" y="10" style="font-size: 10px">#31</text>
+        <text x="20" y="30" style="font-size: 10px">#32</text>
+        <text x="20" y="50" style="font-size: 10px">#33</text>
+        <text x="20" y="70" style="font-size: 10px">#34</text>
+        <text x="20" y="90" style="font-size: 10px">#35</text>
+        <text x="20" y="110" style="font-size: 10px">#36</text>
+        <text x="20" y="130" style="font-size: 10px">#37</text>
+        <text x="20" y="150" style="font-size: 10px">#38</text>
+        <text x="20" y="170" style="font-size: 10px">#39</text>
+        <text x="20" y="190" style="font-size: 10px">#40</text>
+
+        <text x="200" y="210" style="font-size: 10px">Seconds (milliseconds)</text>
+
+        <g>
+        <circle id="scatter31" r="5" cy="10" cx="25" fill="darkred"></circle>
+        <!--To get the amount of time in seconds, I divide the milliseconds by a thousand-->
+        <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'positions' - 132.780 seconds (132780 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter32" r="5" cy="30" cx="25" fill="darkred"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Someone You Loved' - 205.090 seconds (205090 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter33" r="5" cy="50" cx="25" fill="darkred"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Bandido' - 212.353 seconds (212353 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter34" r="5" cy="70" cx="25" fill="darkred"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'I WANNA BE YOUR SLAVE' - 230.747 seconds (230747 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter35" r="5" cy="90" cx="25" fill="darkred"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'RAPSTAR' - 215.627 seconds (215627 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter36" r="5" cy="110" cx="25" fill="darkred"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'LA NOCHE DE ANOCHE' - 164.442 seconds (164442 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter37" r="5" cy="130" cx="25" fill="darkred"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Streets' - 242.096 seconds (242096 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter38" r="5" cy="150" cx="25" fill="darkred"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Sweater Weather' - 215.507 seconds (215507 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter39" r="5" cy="170" cx="25" fill="darkred"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Fiel' - 199.604 seconds (199604 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter40" r="5" cy="190" cx="25" fill="darkred"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Need to Know' - 140.533 seconds (140533 milliseconds)</text>
+        </g>
+
+        <script>
+          var fourtyScatter = [ 172326, 182161, 232853, 173347, 165926, 203201, 226987, 240400, 261667, 210560 ];
+
+          var topFourtyScatter01 = document.getElementById("scatter31");
+          topFourtyScatter01.setAttribute("cx", fourtyScatter[0]/1000);
+          var topFourtyScatter02 = document.getElementById("scatter32");
+          topFourtyScatter02.setAttribute("cx", fourtyScatter[1]/1000);
+          var topFourtyScatter03 = document.getElementById("scatter33");
+          topFourtyScatter03.setAttribute("cx", fourtyScatter[2]/1000);
+          var topFourtyScatter04 = document.getElementById("scatter34");
+          topFourtyScatter04.setAttribute("cx", fourtyScatter[3]/1000);
+          var topFourtyScatter05 = document.getElementById("scatter35");
+          topFourtyScatter05.setAttribute("cx", fourtyScatter[4]/1000);
+          var topFourtyScatter06 = document.getElementById("scatter36");
+          topFourtyScatter06.setAttribute("cx", fourtyScatter[5]/1000);
+          var topFourtyScatter07 = document.getElementById("scatter37");
+          topFourtyScatter07.setAttribute("cx", fourtyScatter[6]/1000);
+          var topFourtyScatter08 = document.getElementById("scatter38");
+          topFourtyScatter08.setAttribute("cx", fourtyScatter[7]/1000);
+          var topFourtyScatter09 = document.getElementById("scatter39");
+          topFourtyScatter09.setAttribute("cx", fourtyScatter[8]/1000);
+          var topFourtyScatter10 = document.getElementById("scatter40");
+          topFourtyScatter10.setAttribute("cx", fourtyScatter[9]/1000);
+        </script>
+      </svg>
+      <h2>Tempo:</h2>
+      <h4 style="font-style:italic">What is the estimated tempo of a track in beats per minute (BPM)?</h4>
+      <svg width="450" height="300">
+        <g>
+          <rect id="temp31" x="55" y="56" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'positions' - 144.015 BPM</text>
+        </g>
+        <g>
+          <rect id="temp32" x="95" y="90" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Someone You Loved' - 109.891 BPM</text>
+        </g>
+        <g>
+          <rect id="temp33" x="135" y="32" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Bandido' - 168.021 BPM</text>
+        </g>
+        <g>
+          <rect id="temp34" x="175" y="68" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'I WANNA BE YOUR SLAVE' - 132.507 BPM</text>
+        </g>
+        <g>
+          <rect id="temp35" x="215" y="119" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'RAPSTAR' - 81.039 BPM</text>
+        </g>
+        <g>
+          <rect id="temp36" x="255" y="118" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'LA NOCHE DE ANOCHE' - 81.993 BPM</text>
+        </g>
+        <g>
+          <rect id="temp37" x="295" y="110" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Streets' - 90.005 BPM</text>
+        </g>
+        <g>
+          <rect id="temp38" x="335" y="76" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Sweater Weather' - 124.053 BPM</text>
+        </g>
+        <g>
+          <rect id="temp39" x="375" y="102" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Fiel' - 98.005 BPM</text>
+        </g>
+        <g>
+          <rect id="temp40" x="415" y="70" width="20" height="45" fill="darkred"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Need to Know' - 130.041 BPM</text>
+
+        </g>
+
+
+        <line x1="40" x2="500" y1="200" y2="200" stroke="black"></line>
+        <line x1="40" x2="40" y1="200" y2="-200" stroke="black"></line>
+
+
+        <text x="60" y="210" style="font-size: 10px">#31</text>
+        <text x="100" y="210" style="font-size: 10px">#32</text>
+        <text x="140" y="210" style="font-size: 10px">#33</text>
+        <text x="180" y="210" style="font-size: 10px">#34</text>
+        <text x="220" y="210" style="font-size: 10px">#35</text>
+        <text x="260" y="210" style="font-size: 10px">#36</text>
+        <text x="300" y="210" style="font-size: 10px">#37</text>
+        <text x="340" y="210" style="font-size: 10px">#38</text>
+        <text x="380" y="210" style="font-size: 10px">#39</text>
+        <text x="420" y="210" style="font-size: 10px">#40</text>
+
+        <text x="25" y="82" style="font-size: 10px">B</text>
+        <text x="25" y="92" style="font-size: 10px">P</text>
+        <text x="25" y="102" style="font-size: 10px">M</text>
+
+
+        <script>
+          var fourtyTempo = [ 144.018, 109.891, 168.021, 132.507, 81.039, 81.993, 90.005, 124.0537, 98.005, 130.041 ];
+
+          var topFourtyTempo01 = document.getElementById("temp31");
+          topFourtyTempo01.setAttribute("height", fourtyTempo[0]);
+          var topFourtyTempo02 = document.getElementById("temp32");
+          topFourtyTempo02.setAttribute("height", fourtyTempo[1]);
+          var topFourtyTempo03 = document.getElementById("temp33");
+          topFourtyTempo03.setAttribute("height", fourtyTempo[2]);
+          var topFourtyTempo04 = document.getElementById("temp34");
+          topFourtyTempo04.setAttribute("height", fourtyTempo[3]);
+          var topFourtyTempo05 = document.getElementById("temp35");
+          topFourtyTempo05.setAttribute("height", fourtyTempo[4]);
+          var topFourtyTempo06 = document.getElementById("temp36");
+          topFourtyTempo06.setAttribute("height", fourtyTempo[5]);
+          var topFourtyTempo07 = document.getElementById("temp37");
+          topFourtyTempo07.setAttribute("height", fourtyTempo[6]);
+          var topFourtyTempo08 = document.getElementById("temp38");
+          topFourtyTempo08.setAttribute("height", fourtyTempo[7]);
+          var topFourtyTempo09 = document.getElementById("temp39");
+          topFourtyTempo09.setAttribute("height", fourtyTempo[8]);
+          var topFourtyTempo10 = document.getElementById("temp40");
+          topFourtyTempo10.setAttribute("height", fourtyTempo[9]);
+        </script>
+      </svg>
+      <br>
+    </div>
+    <div id="topFifty" style="border: solid 1px black">
+      <h1>#41-50</h1>
+      <h2>Chart:</h2>
+      <ol>
+        <li>41. 'Don't Start Now' - Dua Lipa</li>
+        <li>42. 'Lemonade' - Internet Money, Gunna, Don Toliver, NAV</li>
+        <li>43. 'Woman' - Doja Cat</li>
+        <li>44. 'Arcade' - Duncan Laurence</li>
+        <li>45. 'Good Days' - SZA</li>
+        <li>46. 'Ques Más Pues?' - J Balvin & Maria Becerra</li>
+        <li>47. 'Head & Heart' - Joel Corry & MNEK</li>
+        <li>48. '34+35' - Ariana Grande</li>
+        <li>49. 'You broke me first' - Tate McRae</li>
+        <li>50. 'Pareja Del Año' - Sebestián Yatra & Myke Towers</li>
+      </ol>
+      <h2>
+        Popularity:
+        <!--Question 01, "What are the most popualr songs in the chart?"-->
+      </h2>
+      <h4 style="font-style:italic">How many popularity points did each song get?</h4>
+      <svg width="450" height="300">
+        <g>
+          <rect id="pop41" x="55" y="66" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Don't Start Now' - 84 Points</text>
+        </g>
+        <g>
+          <rect id="pop42" x="95" y="69" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Lemonade' - 81 Points</text>
+        </g>
+        <g>
+          <rect id="pop43" x="135" y="55" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Woman' - 95 Points</text>
+        </g>
+        <g>
+          <rect id="pop44" x="175" y="72" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Arcade' - 78 Points</text>
+        </g>
+        <g>
+          <rect id="pop45" x="215" y="63" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Good Days' - 86 Points</text>
+        </g>
+        <g>
+          <rect id="pop46" x="255" y="71" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Ques Más Pues?' - 79 Points</text>
+        </g>
+        <g>
+          <rect id="pop47" x="295" y="64" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Head & Heart' - 86 Points</text>
+        </g>
+        <g>
+          <rect id="pop48" x="335" y="65" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'34+35' - 85 Points</text>
+        </g>
+        <g>
+          <rect id="pop49" x="375" y="63" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'You broke me first' - 88 Points</text>
+        </g>
+        <g>
+          <rect id="pop50" x="415" y="64" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="200" font-style="italic" font-size="15px">'Pareja Del Año' - 86 Points</text>
+
+        </g>
+
+
+        <line x1="40" x2="500" y1="150" y2="150" stroke="black"></line>
+        <line x1="40" x2="40" y1="150" y2="-200" stroke="black"></line>
+
+        <text x="60" y="165" style="font-size: 10px">#41</text>
+        <text x="100" y="165" style="font-size: 10px">#42</text>
+        <text x="140" y="165" style="font-size: 10px">#43</text>
+        <text x="180" y="165" style="font-size: 10px">#44</text>
+        <text x="220" y="165" style="font-size: 10px">#45</text>
+        <text x="260" y="165" style="font-size: 10px">#46</text>
+        <text x="300" y="165" style="font-size: 10px">#47</text>
+        <text x="340" y="165" style="font-size: 10px">#48</text>
+        <text x="380" y="165" style="font-size: 10px">#49</text>
+        <text x="420" y="165" style="font-size: 10px">#50</text>
+
+        <text x="25" y="82" style="font-size: 10px">P</text>
+        <text x="25" y="92" style="font-size: 10px">o</text>
+        <text x="25" y="102" style="font-size: 10px">i</text>
+        <text x="25" y="112" style="font-size: 10px">n</text>
+        <text x="25" y="122" style="font-size: 10px">t</text>
+        <text x="25" y="132" style="font-size: 10px">s</text>
+
+        <script>
+          var fiftyPop = [ 84, 81, 95, 78, 86, 79, 86, 85, 88, 86 ];
+
+          var topFiftyPop01 = document.getElementById("pop41");
+          topFiftyPop01.setAttribute("height", fiftyPop[0]);
+          var topFiftyPop02 = document.getElementById("pop42");
+          topFiftyPop02.setAttribute("height", fiftyPop[1]);
+          var topFiftyPop03 = document.getElementById("pop43");
+          topFiftyPop03.setAttribute("height", fiftyPop[2]);
+          var topFiftyPop04 = document.getElementById("pop44");
+          topFiftyPop04.setAttribute("height", fiftyPop[3]);
+          var topFiftyPop05 = document.getElementById("pop45");
+          topFiftyPop05.setAttribute("height", fiftyPop[4]);
+          var topFiftyPop06 = document.getElementById("pop46");
+          topFiftyPop06.setAttribute("height", fiftyPop[5]);
+          var topFiftyPop07 = document.getElementById("pop47");
+          topFiftyPop07.setAttribute("height", fiftyPop[6]);
+          var topFiftyPop08 = document.getElementById("pop48");
+          topFiftyPop08.setAttribute("height", fiftyPop[7]);
+          var topFiftyPop09 = document.getElementById("pop49");
+          topFiftyPop09.setAttribute("height", fiftyPop[8]);
+          var topFiftyPop10 = document.getElementById("pop50");
+          topFiftyPop10.setAttribute("height", fiftyPop[9]);
+        </script>
+      </svg>
+      <br>
+      <h2>Song Durations:</h2>
+      <h4 style="font-style:italic">What is the length of each song in seconds (milliseconds)?</h4>
+      <!-- Question 02, "How long is each song according to the scatterplot?"-->
+      <br>
+      <svg width="450" height="350">
+        <line x1="40" x2="500" y1="200" y2="200" stroke="black"></line>
+        <line x1="40" x2="40" y1="200" y2="-410" stroke="black"></line>
+
+        <text x="20" y="10" style="font-size: 10px">#41</text>
+        <text x="20" y="30" style="font-size: 10px">#42</text>
+        <text x="20" y="50" style="font-size: 10px">#43</text>
+        <text x="20" y="70" style="font-size: 10px">#44</text>
+        <text x="20" y="90" style="font-size: 10px">#45</text>
+        <text x="20" y="110" style="font-size: 10px">#46</text>
+        <text x="20" y="130" style="font-size: 10px">#47</text>
+        <text x="20" y="150" style="font-size: 10px">#48</text>
+        <text x="20" y="170" style="font-size: 10px">#49</text>
+        <text x="20" y="190" style="font-size: 10px">#50</text>
+
+        <text x="200" y="210" style="font-size: 10px">Seconds (milliseconds)</text>
+
+        <g>
+        <circle id="scatter41" r="5" cy="10" cx="25" fill="red"></circle>
+        <!--To get the amount of time in seconds, I divide the milliseconds by a thousand-->
+        <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Don't Start Now' - 183.290 seconds (183290 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter42" r="5" cy="30" cx="25" fill="red"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Lemonade' - 195.429 seconds (195429 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter43" r="5" cy="50" cx="25" fill="red"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Woman' - 172.627 seconds (172627 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter44" r="5" cy="70" cx="25" fill="red"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Arcade' - 185.147 seconds (185147 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter45" r="5" cy="90" cx="25" fill="red"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Good Days' - 279.204 seconds (279204 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter46" r="5" cy="110" cx="25" fill="red"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Ques Más Pues?' - 217.360 seconds (217360 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter47" r="5" cy="130" cx="25" fill="red"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Head & Heart' - 166.028 seconds (166028 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter48" r="5" cy="150" cx="25" fill="red"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'34+35' - 215.507173.711 seconds (173711 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter49" r="5" cy="170" cx="25" fill="red"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'You broke me first' - 199.604 seconds (199604 milliseconds)</text>
+        </g>
+        <g>
+          <circle id="scatter50" r="5" cy="190" cx="25" fill="red"></circle>
+          <text class="hidden" x="55" y="225" font-style="italic" font-size="15px">'Pareja Del Año' - 195.053 seconds (195053 milliseconds)</text>
+        </g>
+
+        <script>
+          var fiftyScatter = [ 183290, 195429, 172627, 185147, 279204, 217360, 166028, 173711, 169266, 195053 ];
+
+          var topFiftyScatter01 = document.getElementById("scatter41");
+          topFiftyScatter01.setAttribute("cx", fiftyScatter[0]/1000);
+          var topFiftyScatter02 = document.getElementById("scatter42");
+          topFiftyScatter02.setAttribute("cx", fiftyScatter[1]/1000);
+          var topFiftyScatter03 = document.getElementById("scatter43");
+          topFiftyScatter03.setAttribute("cx", fiftyScatter[2]/1000);
+          var topFiftyScatter04 = document.getElementById("scatter44");
+          topFiftyScatter04.setAttribute("cx", fiftyScatter[3]/1000);
+          var topFiftyScatter05 = document.getElementById("scatter45");
+          topFiftyScatter05.setAttribute("cx", fiftyScatter[4]/1000);
+          var topFiftyScatter06 = document.getElementById("scatter46");
+          topFiftyScatter06.setAttribute("cx", fiftyScatter[5]/1000);
+          var topFiftyScatter07 = document.getElementById("scatter47");
+          topFiftyScatter07.setAttribute("cx", fiftyScatter[6]/1000);
+          var topFiftyScatter08 = document.getElementById("scatter48");
+          topFiftyScatter08.setAttribute("cx", fiftyScatter[7]/1000);
+          var topFiftyScatter09 = document.getElementById("scatter49");
+          topFiftyScatter09.setAttribute("cx", fiftyScatter[8]/1000);
+          var topFiftyScatter10 = document.getElementById("scatter50");
+          topFiftyScatter10.setAttribute("cx", fiftyScatter[9]/1000);
+        </script>
+      </svg>
+      <h2>Tempo:</h2>
+      <h4 style="font-style:italic">What is the estimated tempo of a track in beats per minute (BPM)?</h4>
+      <svg width="450" height="300">
+        <g>
+          <rect id="temp41" x="55" y="76" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Don't Start Now' - 123.95 BPM</text>
+        </g>
+        <g>
+          <rect id="temp42" x="95" y="60" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Lemonade' - 140.042 BPM</text>
+        </g>
+        <g>
+          <rect id="temp43" x="135" y="92" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Woman' - 107.998 BPM</text>
+        </g>
+        <g>
+          <rect id="temp44" x="175" y="128" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Arcade' - 72.017 BPM</text>
+        </g>
+        <g>
+          <rect id="temp45" x="215" y="79" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Good Days' - 121.002 BPM</text>
+        </g>
+        <g>
+          <rect id="temp46" x="255" y="98" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Ques Más Pues?' - 102.014 BPM</text>
+        </g>
+        <g>
+          <rect id="temp47" x="295" y="77" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Head & Heart' - 122.953 BPM</text>
+        </g>
+        <g>
+          <rect id="temp48" x="335" y="90" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'34+35' - 109.978 BPM</text>
+        </g>
+        <g>
+          <rect id="temp49" x="375" y="76" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'You broke me first' - 124.148 BPM</text>
+        </g>
+        <g>
+          <rect id="temp50" x="415" y="119" width="20" height="45" fill="red"></rect>
+          <text class="hidden" x="55" y="250" font-style="italic" font-size="15px">'Pareja Del Año' - 80.015 BPM</text>
+
+        </g>
+
+
+        <line x1="40" x2="500" y1="200" y2="200" stroke="black"></line>
+        <line x1="40" x2="40" y1="200" y2="-200" stroke="black"></line>
+
+
+        <text x="60" y="210" style="font-size: 10px">#41</text>
+        <text x="100" y="210" style="font-size: 10px">#42</text>
+        <text x="140" y="210" style="font-size: 10px">#43</text>
+        <text x="180" y="210" style="font-size: 10px">#44</text>
+        <text x="220" y="210" style="font-size: 10px">#45</text>
+        <text x="260" y="210" style="font-size: 10px">#46</text>
+        <text x="300" y="210" style="font-size: 10px">#47</text>
+        <text x="340" y="210" style="font-size: 10px">#48</text>
+        <text x="380" y="210" style="font-size: 10px">#49</text>
+        <text x="420" y="210" style="font-size: 10px">#50</text>
+
+        <text x="25" y="82" style="font-size: 10px">B</text>
+        <text x="25" y="92" style="font-size: 10px">P</text>
+        <text x="25" y="102" style="font-size: 10px">M</text>
+
+
+        <script>
+          var fiftyTempo = [ 123.95, 140.042, 107.998, 72.017, 121.002, 102.014, 122.953, 109.978, 124.148, 80.015 ];
+
+          var topFiftyTempo01 = document.getElementById("temp41");
+          topFiftyTempo01.setAttribute("height", fiftyTempo[0]);
+          var topFiftyTempo02 = document.getElementById("temp42");
+          topFiftyTempo02.setAttribute("height", fiftyTempo[1]);
+          var topFiftyTempo03 = document.getElementById("temp43");
+          topFiftyTempo03.setAttribute("height", fiftyTempo[2]);
+          var topFiftyTempo04 = document.getElementById("temp44");
+          topFiftyTempo04.setAttribute("height", fiftyTempo[3]);
+          var topFiftyTempo05 = document.getElementById("temp45");
+          topFiftyTempo05.setAttribute("height", fiftyTempo[4]);
+          var topFiftyTempo06 = document.getElementById("temp46");
+          topFiftyTempo06.setAttribute("height", fiftyTempo[5]);
+          var topFiftyTempo07 = document.getElementById("temp47");
+          topFiftyTempo07.setAttribute("height", fiftyTempo[6]);
+          var topFiftyTempo08 = document.getElementById("temp48");
+          topFiftyTempo08.setAttribute("height", fiftyTempo[7]);
+          var topFiftyTempo09 = document.getElementById("temp49");
+          topFiftyTempo09.setAttribute("height", fiftyTempo[8]);
+          var topFiftyTempo10 = document.getElementById("temp50");
+          topFiftyTempo10.setAttribute("height", fiftyTempo[9]);
+        </script>
+      </svg>
+      <br>
+    </div>
+    <br>
+    <div id="Citations" style="border: solid 1px black">
+      <h4><a href="https://www.kaggle.com/datasets/equinxx/spotify-top-50-songs-in-2021" style="color:black">Data set inspiration by Hanna Yukhymenko</a></h4>
+      <h4><a href="documentPage.html" style="color:black">Documentations</a></h4>
+    </div>
+  </body>
+
+</html>

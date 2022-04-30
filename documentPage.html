@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--Lucas Edwards - Visualizing Informatics - Final Project-->
+  <head>
+    <meta charset="utf-8">
+    <title>Docuemntation</title
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <style>
+    h1 {
+      text-align: center;
+    }
+    h3 {
+      text-align: center;
+    }
+    h2 {
+      margin: 15px;
+      text-align: center;
+      text-decoration: underline;
+    }
+    body {
+      background-color: black;
+    }
+
+    div {
+      background-color: lightgreen;
+      padding: 50px;
+      margin: 50px;
+    }
+    h4 {
+      text-align: center;
+    }
+    iframe {
+      position:relative;
+      left:450px;
+    }
+    ol, li {
+      margin: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      float: inherit;
+    }
+
+    .instrumentalness {
+      position:relative;
+      width: 600px;
+      height: 600px;
+      border: solid 1px black;
+    }
+
+    .questions {
+      position:relative;
+      width: 600px;
+      height: 600px;
+      border: solid 1px black;
+    }
+    .design01 {
+      position:relative;
+      width: 600px;
+      height: 600px;
+      border: solid 1px black;
+    }
+    .concepts {
+      position:relative;
+      width: 600px;
+      height: 600px;
+      border: solid 1px black;
+    }
+    .pop {
+      position:relative;
+      width: 600px;
+      height: 600px;
+      border: solid 1px black;
+    }
+    .design02 {
+      position:relative;
+      width: 600px;
+      height: 600px;
+      border: solid 1px black;
+    }
+    img {
+      position: relative;
+      left:200px;
+    }
+  </style>
+  <body>
+    <div style="border: solid 1px black">
+      <h1>Documentations</h1>
+      <h2>Learn about the design process of my visualizations, my rationalizations for some of the designs, and some interesting discoveries I saw when doing my research!</h2>
+      <iframe src="https://onedrive.live.com/embed?cid=0FCBC70F145751FF&resid=FCBC70F145751FF%2110328&authkey=AAQ2NIcxdb2fS_g" width="320" height="170" frameborder="0" scrolling="no" allowfullscreen></iframe>
+      <p style="font-style:italic; text-align:center;">This video will show off the visualization in action</p>
+    </div>
+    <div style="border: solid 1px black">
+      <h1>Design Process:</h1>
+      <br>
+      <h3 style="padding: 5px">
+        "Designing the visualization for my project and my picked dataset, I knew it had to be one that would seem like a challnge, but also matched up with the skills I currently have and mastered. Sadly, there were times that a visualization idea came to mind that no longer works for me nor the dataset as I continued to work on a project."
+      </h3>
+      <br>
+      <img class="concepts" src="rejectedConcepts_lucasE.JPG" alt="Concepts that I thought of, but decided not to do">
+      <br>
+      <h3>
+        "One visual I wanted to do was a slideshow style design, where one could press a button and the visualizations would appear one by one. I scrapped the concept mainly because of how, 1) I felt it was a bit too much to show, as I had 3 different visualizations for 5 different divs of information, so I didn't want to waste time trying to make it work and went with simpler ideas. 2) Coding, while I am familiar with HTML, is not really my strong suit as I often struggle to make a complex code work for me, so putting too much risk on something that could backfire on me might not be the smartest move there. Another idea I had was just a long list with clickable links to a song's data, which would have answered multiple questions featuring popularity value, loudness, duration, bpm (beats per minute), etc. I cut off that concept because I wanted to work on only two pages (one for the visualization and the other for this document) and like the former concept dropped, too many datas to try and squeeze in."
+      </h3>
+      <br>
+      <img class="questions" src="possibleQuestions_lucasE.JPG" alt="Some of the questions I wanted to do before cutting them off...">
+      <br>
+      <h3 style="padding: 5px">
+        "Another process of my design were the questions. During the time, I had around 7 questions made for different datas from my selected dataset: How popular are the songs?, How danceable are the songs?, How energetic are the songs?, How loud are the songs?, What are the beats per minute (BPMs) per song?, What are the songs durations in seconds?, and How instrumental is each song? However, as I had a lot of datasets to look over... I felt I needed to cut of some questions from the board. One of the questions that I cut was, 'How instrumental is each song?' because while it would have been easy to solve the equations as it's just the scientific notation, I did fear the bar/scatterplot charts not catching anything major and the results were more ever the same. After a couple moments of cutting off questions and making adjustments, I had been left with at least three..."
+      </h3>
+      <ol>
+        <li>
+          What are the popularity values of each song?
+        </li>
+        <li>
+          What are the song lengths/durations in seconds and milliseconds?
+        </li>
+        <li>
+          What are the beats per minute in each song?
+        </li>
+      </ol>
+    </div>
+    <div style="border: solid 1px black">
+      <h1>Rationale For My Design:</h1>
+      <br>
+      <h3 style="padding: 5px">
+        "A lot of ideas came for how I wanted to design my visualization, yet sometimes the choices may cause people to ask 'Why do this?' Thankfully, I will provide a good reasoning for why my design choices are rationable."
+      </h3>
+      <br>
+      <img class="design01" src="rationableConcepts_01_lucasE.JPG" alt="Design concepts I had in mind">
+      <br>
+      <h3>
+        "From the above concept; I provided reasons for some of the design picks I have done. Design Concept #1 was the hidden text feature as I felt the graphs would be too small to be able to see any of the data. I grouped all my rectangles of the bar graphs and the circles of the scatterplots to seperate groups and added a text, which would only appear when you hover over it with a cursor. Speaking of 'graphs and scatterplots,' Design Concept #2 was why I decided to work with them. For the former, I felt they could provide a lot of comparison between songs for their popularity and their tempo. For the latter, I felt the scatterplot would work best for a scenario like song durations as there isn't really a need to compete with bar graphs for that. I also had a 'line graph' crossed out as I felt that none of the datas would apply well to a line graph as I feel that would work better if the data was financial related. Design Concpet #3 was the background and div colors. For the former, I went with a full black background. For the latter, I went with a light green color. I chose those colors because they are similar to the current Spotify logo's color scheme. I also considered adding a Spotify playlist with the songs, but I figured it would be better without it as people could make the playlist by themselves."
+      </h3>
+      <br>
+      <img class="design02" src="rationableConcepts_02_lucasE.JPG" alt="More design concepts I had in mind">
+      <br>
+      <h3>
+        "The above list has more design concpts and why I went through with them. Design Concept #4, on the visualizations, you'll noticed that the bars/plots start of blue before turning into a red color. I did this because if a song was at #1, then it would be the coldest as it would equal 1 degree. However, #50 would equal 50 degrees, making it warmer. I came up with all this by thinking of 'the lower the number, the colder it'll get and the higher the number, the warmer it'll get.' Why not reverse the roles, as the higher the song is the more hot it is... but I felt that had been overdone so many times and wanted to spice things up. Design Concept #5, why did I provide the charts onto the divs? For each div, there is a chart for certain positions (example, #11-20 would have charts for 11 to 20), I added them because it allows people to look at the number and look at that specific div to see the data from the number (Example, you would look at #13 on the pop data when reviewing the chart position #13). Design Concept #6, why include all 50 songs? Yes, I could have just cut them down to just a top 10, a top 25, or maybe even a top 40... but I kept all 50 because I know how each data is considered important and I felt including all the songs was the right thing to do."
+      </h3>
+    </div>
+    <div style="border: solid 1px black">
+      <h1>Discoveries</h1>
+      <br>
+      <h3 style="padding: 5px">
+        "As with researching all datasets, there will be moments where researching a topic may lead to us catching on to details we may have never thought of before, what causes us to be shocked, and what may make us question more about the data. One of the bigger surprises, researching over the excel file, was the popularity. The popularity column reads 'the higher the value (0-100), the more popular a song is'. One thing I noticed was how dispite some of the songs making it to a value of 95 points ('Woman' by Doja Cat being #40 (Although I think it was around the period where she released her recent album... so justifiable)) actually charted low, while a 77 pointer ('Astronaut in the Ocean' by Masked Wolf) gets #11. I don't know how exactly each song got its data of popularity, but if it gets streamed a lot on the platform then it may increase the point value of a song's popularity."
+      </h3>
+      <br>
+      <img class="pop" src="popularityData_lucasE.JPG" alt="The popularity points that 'Astronaut In The Ocean' by Masked Wolf recieved">
+      <br>
+      <h3>
+        "Another visualization I read more on (and chose not to answer) was the 'instrumentalness' of a song. The dataset states that states how vocal a song is. Reading the info, none of the values, except for a couple, left beyond a value of 1, and some even remained among the 0s with a form of decimal. Some of the data also went into 'E' territory, which is related to scientific notation (For example 'Heat Waves' by Glass Animals has an instrumentalness score of 6.70E-06 would equal a score of 0.0000067). I felt the discovery was important because it shows how less songs are relying on the instrumentations and more on the vocals. Check the image below for another example of 'E' scientific notation variables."
+      </h3>
+      <br>
+      <img class="instrumentalness" src="instrumentalness_lucasE.JPG" alt="Instrumentalness of SZA's 'Good Day's'">
+      <br>
+      <h3>
+        "The last dataset I want to refer to (and another I never questioned/answered) is the song's 'Acousticness'. Acousticness, according to the dataset, is when a song is higher valued in that position, the song acts more acoustic. Example, 'The Business' by Tiesto has an Acousticness score of 0.414, which means it is around the middle of the value. However, while some do come close to a value of 1... majority of them seem to be below a 0.5. This is an important discovery, because it shows how people have less interest in accoustic songs and more with a more pop style."
+      </h3>
+    </div>
+    <div style="border: solid 1px black">
+      <h2>Thanks for reading my document!</h2>
+      <h3>Click on the top link for the dataset inspiration and click on the bottom to return back to teh visualizations</h3>
+      <h4><a href="https://www.kaggle.com/datasets/equinxx/spotify-top-50-songs-in-2021" style="color:black">Data set inspiration by Hanna Yukhymenko</a></h4>
+      <h4><a href="visualizationPage.html" style="color:black">Return to Visualization</a></h4>
+    </div>
+  </body>
+</html>
